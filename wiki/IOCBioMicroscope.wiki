@@ -1,0 +1,114 @@
+#summary IOCBio Microscope package
+#labels Featured
+
+= Introduction =
+
+This software package allows to deconvolve microscope images. In addition to the deconvolution program, the package includes of the set of tools that are required for processing the images, estimation of point spread function (PSF) and visualizing the results. This software is written in Python and is released with an open-source license (see below).
+
+= Package tools =
+
+The following tools are provided in the package iocbio.microscope:
+
+  * [http://sysbio.ioc.ee/download/software/iocbio/generated/iocbio-deconvolve.html iocbio_deconvolve], [http://sysbio.ioc.ee/download/software/iocbio/generated/iocbio-deconvolve_with_sphere.html iocbio_deconvolve_with_sphere] --- these are scripts to deconvolve 3D microscope images with specified kernel (e.g. PSF that is estimated from the measurements of microspheres) or sphere (to improve the estimated PSF by taking into account the finite dimensions of microspheres).
+  * [http://sysbio.ioc.ee/download/software/iocbio/generated/iocbio-estimate_psf.html iocbio_estimate_psf] --- this is a script to compute estimated PSF from the measurements of microspheres.
+
+For more information, see [http://sysbio.ioc.ee/download/software/iocbio/ IOCBio Documentation].
+
+= Examples =
+
+Example PSF and stack of confocal images is available for download here:
+  http://sysbio.ioc.ee/download/software/ioc.microscope/example.zip
+
+A [http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/ short tutorial] is available on-line.
+
+= Installation =
+
+Since _iocbio.microscope_ is written in Python language and uses various scientific computational modules and provides basic graphical interfaces, then the following software (with all their dependencies) must be installed to use IOCBio Microscope Software:
+  * [http://www.python.org/ Python] - an easy to learn, powerful programming language.
+  * [http://www.wxpython.org/ WX Python] - a GUI toolkit for the Python programming language.
+  * [http://www.numpy.org/ Numpy] - the fundamental package needed for scientific computing with Python.
+  * [http://www.scipy.org/ Scipy] - an open-source software for mathematics, science, and engineering.
+  * [http://www.libtiff.org/ libtiff] - provides support for the Tag Image File Format (TIFF).
+  * [http://developer.berlios.de/projects/pyfftw/ pyfftw] - Python bindings to the FFTW3 C-library.
+  * [http://matplotlib.sourceforge.net/ Matplotlib] - a python 2D plotting library (optional).
+
+The sources of iocbio.microscope is available via [http://code.google.com/p/iocbio/source/list SVN] and HTTP. Note that iocbio.microscope requires Python 2.5 or newer. Python 2.5 users must also install the backport of the [http://code.google.com/p/python-multiprocessing/ multiprocessing] package.
+
+== Windows users ==
+
+To ease the process of installing required software for Windows users, below we provide direct links to the corresponding installers. The installers should be executed in the given order:
+
+    * Python: http://iocbio.googlecode.com/files/python-2.6.2.msi
+    * WX Python: http://iocbio.googlecode.com/files/wxPython2.8-win32-unicode-2.8.9.2-py26.exe
+    * Numpy: http://iocbio.googlecode.com/files/numpy-1.4.0.dev6882.win32-py2.6.exe
+    * Scipy: http://iocbio.googlecode.com/files/scipy-0.8.0.dev5953.win32-py2.6.exe
+    * libtiff: http://iocbio.googlecode.com/files/tiff-3.8.2-1.exe
+    * pyfftw: http://iocbio.googlecode.com/files/PyFFTW3-0.2-svn.win32.exe
+    * Matplotlib: http://iocbio.googlecode.com/files/matplotlib-1.0.svn.win32-py2.6.exe
+    * iocbio: to be announced
+    * and finally, restart your computer.
+
+You will find a new folder IOCBio in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
+
+== Linux users ==
+
+The following commands install all prerequisites as well as iocbio.microscope software for various Linux distributions:
+
+Ubuntu/Debian:
+{{{
+sudo apt-get install python-dev python-numpy python-scipy python-wxgtk2.6 \
+                     python-matplotlib libtiff4-dev libfftw3-dev
+}}}
+
+Other:
+{{{
+# Install python, numpy, scipy, wx Python bindings, matplotlib, tiff library,
+# and fftw library according to the installation instructions of these software.
+}}}
+
+Finally, all Linux distributions should execute the following commands:
+{{{
+# Install pyfftw:
+svn checkout http://svn.berlios.de/svnroot/repos/pyfftw/PyFFTW/trunk  pyfftw
+cd pyfftw
+sudo python setup.py install
+cd ..
+
+# Only for Python 2.5 users, install multiprocessing:
+svn checkout http://python-multiprocessing.googlecode.com/svn/trunk/ multiprocessing
+cd multiprocessing
+sudo python setup.py install
+cd ..
+
+# Install iocbio package:
+wget http://tobeannounced
+tar xzf iocbio-1.1.0.tar.gz
+cd iocbio-1.1.0
+sudo python setup.py install
+cd ..
+}}}
+
+To test iocbio.microscope installation, run, for example,
+{{{
+iocbio.deconvolve
+}}}
+
+== License and reference ==
+
+Please note that this software is NOT RELEASED until the manuscript describing the use of the software has been accepted for publication. Until then, the use of the software is allowed only by
+  * members of Laboratory of Systems Biology, Institute of Cybernetics at Tallinn University of Technology
+  * people involved in the reviewing process of the manuscript to access the scientific merit of the manuscript
+
+No distribution is allowed at this stage. The following text will be used instead this note after the acceptance of the manuscript.
+
+The iocbio package is distributed using an open-source license (BSD). In addition to the terms of the license, we ask to acknowledge the use of the package in scientific articles by citing the following paper:
+
+  * Laasmaa, M, Vendelin, M, Peterson, P (YEAR). Application of regularized Richardson-Lucy algorithm for deconvolution of confocal microscopy images. JOURNAL INFORMATION
+
+= Acknowledgments =
+
+The iocbio software uses the following third-party software (included in the package):
+  * [http://www.lfd.uci.edu/~gohlke/code/tifffile.py.html tifffile.py] - Read TIFF, STK, LSM and FluoView files and access image data as NumPy array.
+  * [http://code.google.com/p/pylibtiff/ pylibtiff] - Wraps [http://www.libtiff.org/ libtiff] library to Python using [http://docs.python.org/library/ctypes.html ctypes].
+  * [http://benjamin.smedbergs.us/blog/2006-12-11/killableprocesspy/ killableprocess] - Extends [http://docs.python.org/library/subprocess.html subprocess] such that the process and all of its sub-subprocesses are killed correctly, on Windows, Mac, and Linux.
+  * Windows installers are build using [http://www.mingw.org/ MinGW] under [http://www.ubuntu.com/ Ubuntu Linux] ([http://code.google.com/p/sympycore/wiki/BuildWindowsInstallerOnLinux howto]) and using library packages from the [http://gnuwin32.sourceforge.net/ GnuWin32] project.
