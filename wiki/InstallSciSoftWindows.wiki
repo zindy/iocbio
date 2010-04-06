@@ -1,0 +1,20 @@
+#summary Installing Scientific Software for Windows
+
+= Introduction =
+
+
+
+== MinGW and MSYS ==
+
+Mingw - provides Windows header files and import libraries combined with GNU toolsets.
+
+  * Select and run recent version of Automated MinGW Installer from http://sourceforge.net/projects/mingw/files/. Make sure to select g++, g77 compilers and MinGW Make when choosing components.
+
+MSYS - provides GNU utilites such as bash, etc.
+
+  * Install http://downloads.sourceforge.net/mingw/MSYS-1.0.11.exe. Say YES to post installation procedure and follow its instructions.
+
+To check MSYS installation, click MSYS icon on the Desktop and run
+{{{
+g++ --version
+}}}
