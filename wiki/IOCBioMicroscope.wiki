@@ -48,7 +48,7 @@ To ease the process of installing required software for Windows users, below we 
     * iocbio: to be announced
     * and finally, restart your computer.
 
-You will find a new folder IOCBio in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
+You will find a new folder `IOCBio Software` in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
 
 == Linux users ==
 
