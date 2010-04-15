@@ -1,4 +1,5 @@
 #summary IOCBio strathkelvin package
+#labels Featured
 
 = Introduction =
 
