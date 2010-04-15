@@ -14,7 +14,7 @@ The IOCBio.StrathKelvin software provides a GUI program:
 {{{
   iocbio.strathkelvin929
 }}}
-which can be access via `Strathkelvin929` shortcut in the `Desktop/IOCBio Folder` in Windows.
+which can be access via `Strathkelvin929` shortcut in the `Desktop/IOCBio Software` folder.
 
 = Installation =
 
