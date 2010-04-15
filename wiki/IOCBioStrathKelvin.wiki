@@ -33,7 +33,7 @@ To ease the process of installing required software for Windows users, below we 
     * WX Python: http://iocbio.googlecode.com/files/wxPython2.8-win32-unicode-2.8.9.2-py26.exe
     * Numpy: http://iocbio.googlecode.com/files/numpy-1.4.0.dev6882.win32-py2.6.exe
     * Matplotlib: http://iocbio.googlecode.com/files/matplotlib-1.0.svn.win32-py2.6.exe
-    * iocbio: http://iocbio.googlecode.com/files/iocbio-1.1.0.dev30.win32-py2.6.exe (run this installer program as an Administrator, otherwise you might need to edit PATH environment variable manually)
+    * iocbio: http://iocbio.googlecode.com/files/iocbio-1.1.0.dev37.win32-py2.6.exe (run this installer program as an Administrator, otherwise you might need to edit PATH environment variable manually)
     * and finally, restart your computer.
 
 You will find a new folder "IOCBio Software" in your computers Desktop that contains a shortcut to iocbio.strathkelvin929 script. Double-click on the Strathkelvin929 to start the GUI program.
