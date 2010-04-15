@@ -4,7 +4,7 @@
 = Introduction =
 
 This software is a wrapper to [http://www.strathkelvin.com/biomedical/928.asp Strathkelvin 929 Oxygen System] software that can measure the oxygen concentration in respiration cells.
-While experiment is still running, the IOCBio.StrathKelvin software captures oxygen measurements, runs analysis procedures, and displays the results in its GUI program.
+While experiment is running, the IOCBio.StrathKelvin software captures oxygen measurements, runs analysis procedures, and displays the results in its GUI program.
 The software is written in Python and can be easily extended with custom analysis procedures for live data. As an example, the software computes
 and displays the respiration rates while acquiring oxygen concentration data.
 
