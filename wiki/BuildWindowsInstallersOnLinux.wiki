@@ -48,6 +48,8 @@ wine dist/numpy-2.0.0.dev8445.win32-py2.6.exe
 
 {{{
 mkdir -p ~/src && cd ~/src
+# lapack-3.2 and newer require a Fortran 90 compiler.
+# we are using g77 since gfortran is not easily available in mingw currently
 wget http://www.netlib.org/lapack/lapack-3.1.1.tgz
 tar xzf lapack-3.1.1.tgz
 cd lapack-3.1.1
