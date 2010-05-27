@@ -1,0 +1,55 @@
+#summary Howto build windows installers on Linux.
+
+Original document: http://code.google.com/p/sympycore/wiki/BuildWindowsInstallerOnLinux
+
+= Introduction =
+
+This document describes how to build windows installers of python packages on Linux. I am using Ubuntu but the instructions should work with minor modifications for other Linux systems as well. 
+
+= Prerequisites =
+
+Install wine, Python, MinGW:
+{{{
+sudo apt-get install wine
+mkdir wine && cd wine
+wget http://www.python.org/ftp/python/2.6.5/python-2.6.5.msi
+msiexec /i python-2.6.5.msi
+wget http://downloads.sourceforge.net/project/mingw/Automated%20MinGW%20Installer/MinGW%205.1.6/MinGW-5.1.6.exe
+wine MinGW-5.1.6.exe
+#IMPORTANT: Make sure that g++, g77 compilers are checked for install.
+}}}
+
+Fix wine PATH environment variable:
+{{{
+regedit
+# Lookup "PATH" environment variable and append ";C:\Python26;C:\MinGW\bin" to it.
+# The path to "PATH" is "HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Session Manager/Environment/PATH".
+}}}
+
+= wxPython =
+
+{{{
+wget http://downloads.sourceforge.net/wxpython/wxPython2.8-win32-unicode-2.8.11.0-py26.exe
+wine wxPython2.8-win32-unicode-2.8.11.0-py26.exe
+}}}
+
+= Numpy =
+
+{{{
+svn co http://svn.scipy.org/svn/numpy/trunk numpy
+cd numpy
+PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
+wine dist/numpy-2.0.0.dev8445.win32-py2.6.exe
+}}}
+
+= Scipy =
+
+{{{
+export LAPACK_SRC=/path/to/lapack-3.2.1
+export BLAS_SRC=/path/to/blas
+svn co http://svn.scipy.org/svn/scipy/trunk scipy
+cd scipy
+PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
+}}}
+
+= Matplotlib =
