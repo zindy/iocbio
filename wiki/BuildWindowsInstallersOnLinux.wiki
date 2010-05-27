@@ -50,6 +50,8 @@ export BLAS_SRC=/path/to/blas
 svn co http://svn.scipy.org/svn/scipy/trunk scipy
 cd scipy
 PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
+# You might need to rerun the build command several times when
+# it fails in compiling blas/lapack sources.
 }}}
 
 = GTK/pygtk/pycairo/pygobject =
@@ -76,6 +78,22 @@ wine pygobject-2.20.0.win32-py2.6.exe
 cd ~/svn
 svn co https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/trunk/matplotlib
 cd matplotlib
-# Apply matplotlib-wine.patch that adds win32 support to setupext.py:
-
+# Apply matplotlib-wine.patch that adds wine-win32 support to setupext.py:
+wget http://iocbio.googlecode.com/files/matplotlib-wine.patch
+# ...
+PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 }}}
+
+= IOCBio =
+
+{{{
+cd ~/svn
+svn checkout http://iocbio.googlecode.com/svn/trunk/ iocbio
+cd iocbio
+./mk_wininstaller.sh 
+}}}
+
+= Prebuilt binaries =
+
+Binaries that are built according to these instructions are available in
+http://sysbio.ioc.ee/download/software/binaries/
