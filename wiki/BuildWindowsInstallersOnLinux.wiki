@@ -22,7 +22,7 @@ wine MinGW-5.1.6.exe
 Fix wine PATH environment variable:
 {{{
 regedit
-# Lookup "PATH" environment variable and append ";C:\Python26;C:\MinGW\bin" to it.
+# Lookup "PATH" environment variable and append ";C:\Python26;C:\MinGW\bin;C:\gtk\bin" to it.
 # The path to "PATH" is "HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Session Manager/Environment/PATH".
 }}}
 
@@ -52,13 +52,30 @@ cd scipy
 PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 }}}
 
+= GTK/pygtk/pycairo/pygobject =
+
+{{{
+cd ~/.wine/drive_c
+mkdir gtk
+cd gtk
+wget http://ftp.gnome.org/pub/gnome/binaries/win32/gtk+/2.16/gtk+-bundle_2.16.6-20100207_win32.zip
+unzip gtk+-bundle_2.16.6-20100207_win32.zip
+
+cd ~/wine
+wget http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.16/pygtk-2.16.0+glade.win32-py2.6.exe
+wget http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/2.20/pygobject-2.20.0.win32-py2.6.exe
+wget http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/1.8/pycairo-1.8.6.win32-py2.6.exe
+wine pygtk-2.16.0+glade.win32-py2.6.exe
+wine pycairo-1.8.6.win32-py2.6.exe
+wine pygobject-2.20.0.win32-py2.6.exe
+}}}
+
 = Matplotlib =
 
 {{{
-cd ~/wine
-wget http://downloads.sourceforge.net/project/gnuwin32/freetype/2.3.5-1/freetype-2.3.5-1-setup.exe
 cd ~/svn
 svn co https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/trunk/matplotlib
-# Edit setupext.py: if 'bdist_wininst' in sys.argv: std_libs.append ('msvcrt')
+cd matplotlib
+# Apply matplotlib-wine.patch that adds win32 support to setupext.py:
 
 }}}
