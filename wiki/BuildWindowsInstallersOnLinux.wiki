@@ -47,10 +47,13 @@ wine dist/numpy-2.0.0.dev8445.win32-py2.6.exe
 = LAPACK =
 
 {{{
-cd /path/to/src/lapack-3.2.1
-wget make.inc.MINGW-g77 make.inc
-cd SRC
-wine make
+mkdir -p ~/src && cd ~/src
+wget http://www.netlib.org/lapack/lapack-3.1.1.tgz
+tar xzf lapack-3.1.1.tgz
+cd lapack-3.1.1
+wget http://iocbio.googlecode.com/files/make.inc.MINGW-g77
+cp make.inc.MINGW-g77 make.inc
+cd SRC && wine make -j 5
 }}}
 
 = Scipy =
