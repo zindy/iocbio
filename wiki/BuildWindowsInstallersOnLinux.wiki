@@ -4,11 +4,14 @@ Original document: http://code.google.com/p/sympycore/wiki/BuildWindowsInstaller
 
 = Introduction =
 
-This document describes how to build windows installers of python packages on Linux. I am using Ubuntu but the instructions should work with minor modifications for other Linux systems as well. 
+This document describes how to build windows installers of Python packages on Linux
+using [http://www.winehq.org/ Wine] and [http://www.mingw.org/ MinGW].
+
+The instructions are developed under Ubuntu Linux (Lucid) should work with minor modifications for other Linux systems as well. 
 
 = Prerequisites =
 
-Install wine, Python, MinGW:
+Install wine, Python, MinGW, and Make:
 {{{
 sudo apt-get install wine
 mkdir wine && cd wine
