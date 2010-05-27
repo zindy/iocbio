@@ -53,3 +53,12 @@ PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 }}}
 
 = Matplotlib =
+
+{{{
+cd ~/wine
+wget http://downloads.sourceforge.net/project/gnuwin32/freetype/2.3.5-1/freetype-2.3.5-1-setup.exe
+cd ~/svn
+svn co https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/trunk/matplotlib
+# Edit setupext.py: if 'bdist_wininst' in sys.argv: std_libs.append ('msvcrt')
+
+}}}
