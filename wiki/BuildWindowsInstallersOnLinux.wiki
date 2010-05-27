@@ -85,6 +85,18 @@ wget http://iocbio.googlecode.com/files/matplotlib-wine.patch
 PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 }}}
 
+= PyFFTW3 =
+
+{{{
+mkdir ~/bzr
+cd bzr && bzr branch lp:pyfftw
+cd pyfftw
+wget ftp://ftp.fftw.org/pub/fftw/fftw-3.2.2.pl1-dll32.zip
+unzip fftw-3.2.2.pl1-dll32.zip libfftw3-3.dll libfftw3f-3.dll libfftw3l-3.dll
+cp *.dll src/templates/
+PYTHONPATH= wine python setup.py bdist_wininst
+}}}
+
 = IOCBio =
 
 {{{
