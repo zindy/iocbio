@@ -17,12 +17,14 @@ msiexec /i python-2.6.5.msi
 wget http://downloads.sourceforge.net/project/mingw/Automated%20MinGW%20Installer/MinGW%205.1.6/MinGW-5.1.6.exe
 wine MinGW-5.1.6.exe
 #IMPORTANT: Make sure that g++, g77 compilers are checked for install.
+wget http://downloads.sourceforge.net/project/gnuwin32/make/3.81/make-3.81.exe
+wine make-3.81.exe
 }}}
 
 Fix wine PATH environment variable:
 {{{
 regedit
-# Lookup "PATH" environment variable and append ";C:\Python26;C:\MinGW\bin;C:\gtk\bin" to it.
+# Lookup "PATH" environment variable and append ";C:\Python26;C:\MinGW\bin;C:\gtk\bin;C:\Program Files\GnuWin32\bin" to it.
 # The path to "PATH" is "HKEY_LOCAL_MACHINE/System/CurrentControlSet/Control/Session Manager/Environment/PATH".
 }}}
 
@@ -40,6 +42,15 @@ svn co http://svn.scipy.org/svn/numpy/trunk numpy
 cd numpy
 PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 wine dist/numpy-2.0.0.dev8445.win32-py2.6.exe
+}}}
+
+= LAPACK =
+
+{{{
+cd /path/to/src/lapack-3.2.1
+wget make.inc.MINGW-g77 make.inc
+cd SRC
+wine make
 }}}
 
 = Scipy =
