@@ -56,12 +56,13 @@ cd lapack-3.1.1
 wget http://iocbio.googlecode.com/files/make.inc.MINGW-g77
 cp make.inc.MINGW-g77 make.inc
 cd SRC && wine make -j 5
+mv lapack_MINGW.a libflapack.a
 }}}
 
 = Scipy =
 
 {{{
-export LAPACK_SRC=/path/to/lapack-3.2.1
+export LAPACK=~/src/lapack-3.1.1
 export BLAS_SRC=/path/to/blas
 svn co http://svn.scipy.org/svn/scipy/trunk scipy
 cd scipy
