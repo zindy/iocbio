@@ -51,7 +51,8 @@ svn co http://svn.scipy.org/svn/scipy/trunk scipy
 cd scipy
 PYTHONPATH= wine python setup.py build --compiler=mingw32 bdist_wininst
 # You might need to rerun the build command several times when
-# it fails in compiling blas/lapack sources.
+# it fails with the following error:
+#   g77.exe: C:/MinGW/bin/../lib/gcc/mingw32/3.4.5/specs: No such file or directory
 }}}
 
 = GTK/pygtk/pycairo/pygobject =
