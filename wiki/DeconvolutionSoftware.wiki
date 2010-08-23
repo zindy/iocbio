@@ -5,6 +5,6 @@ This page contains various information on available deconvolution software.
 = Open-source software =
 
   * [http://cismm.cs.unc.edu/resources/software-manuals/clarity-deconvolution-library/ Clarity Deconvolution Library], GPL, C/C++ library.
-  * [http://cirl.memphis.edu/cosmos/ Computational Optical Sectioning Microscopy Open Source (COSMOS) Software package], GPL, C++ library.
+  * [http://cirl.memphis.edu/cosmos/ Computational Optical Sectioning Microscopy Open Source (COSMOS) Software package], GPL, C++ library, former [http://www.essrl.wustl.edu/~preza/xcosm/ XCOSM software]
   * [http://dx.doi.org/10.1111/j.1365-2818.2009.03205.x An open-source deconvolution software package for 3-D quantitative fluorescence microscopy imaging], GPL, C++ library, [http://lsdcas.engineering.uiowa.edu/downloads/deconv-source.tar.gz download link].
   * [http://code.google.com/p/iocbio/wiki/IOCBioMicroscope IOCBio.Microscope], BSD, Python package.
