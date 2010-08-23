@@ -1,4 +1,4 @@
-#summary A list of open-source deconvolution software
+#summary A list of deconvolution software
 
 This page contains various information on available deconvolution software.
 
