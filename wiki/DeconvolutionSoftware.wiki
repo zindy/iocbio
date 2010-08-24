@@ -1,6 +1,6 @@
 #summary A list of deconvolution software
 
-This page contains various information on deconvolution software. Please let us know if the list is incomplete.
+This page contains various information on deconvolution software for improving microscope images. Please let us know if the list is incomplete.
 
 = Open-source software =
 
