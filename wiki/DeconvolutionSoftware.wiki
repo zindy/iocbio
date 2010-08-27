@@ -8,3 +8,4 @@ This page contains various information on deconvolution software for improving m
   * [http://cirl.memphis.edu/cosmos/ Computational Optical Sectioning Microscopy Open Source (COSMOS) Software package], GPL, C++ library, former [http://www.essrl.wustl.edu/~preza/xcosm/ XCOSM software]
   * [http://dx.doi.org/10.1111/j.1365-2818.2009.03205.x An open-source deconvolution software package for 3-D quantitative fluorescence microscopy imaging], GPL, C++ library, [http://lsdcas.engineering.uiowa.edu/downloads/deconv-source.tar.gz download link], [http://svn.lsdcas.engineering.uiowa.edu/repos/lsdcas/trunk/deconv/ SVN repository].
   * [http://code.google.com/p/iocbio/wiki/IOCBioMicroscope IOCBio.Microscope], BSD, Python package.
+  * [http://code.google.com/p/aida-deconvolution/ Adaptive Image Deconvolution Algorithm (AIDA)], BSD, Python package, requires [http://code.google.com/p/priithon/ Priithon].
