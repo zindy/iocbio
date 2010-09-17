@@ -1,3 +1,15 @@
 #summary Deconvolution tutorial
 
-http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/
+{{{
+-----------------------------------------------
+This page will be updated within couple of days
+-----------------------------------------------
+Please stay tuned.
+
+Pearu Peterson
+September 17, 2010
+
+For an old tutorial, see
+
+  http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/
+}}}
