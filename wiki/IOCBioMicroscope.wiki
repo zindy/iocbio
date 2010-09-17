@@ -1,6 +1,16 @@
 #summary IOCBio Microscope package
 #labels Featured
 
+{{{
+-----------------------------------------------
+This page will be updated within couple of days
+-----------------------------------------------
+Please stay tuned.
+
+Pearu Peterson
+September 17, 2010
+}}}
+
 = Introduction =
 
 This software package allows to deconvolve microscope images. In addition to the deconvolution program, the package includes of the set of tools that are required for processing the images, estimation of point spread function (PSF) and visualizing the results. This software is written in Python and is released with an open-source license (see below).
