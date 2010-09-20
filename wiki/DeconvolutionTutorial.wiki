@@ -18,6 +18,18 @@ For an old tutorial, see
 
 This tutorial introduces iocbio.deconvolve program for deconvolving microscope image with measured point spread function (PSF). 
 
-As an example, let us consider the following microscope image of rat cardiomyocyte with stained mitochondria that is acquired with a confocal microscope with photon counting detector ([http://sysbio.ioc.ee/download/software/iocbio.microscope/cell2_mitogreen_px25.tif.gz compressed TIF image (31MB)]):
+= Microscope image =
+
+As an example, let us consider the following microscope image of rat cardiomyocyte with stained mitochondria that is acquired with a confocal microscope with photon counting detector ([http://sysbio.ioc.ee/download/software/iocbio.microscope/cell2_mitogreen_px25.tif.gz compressed TIF image (23MB)]):
 
 http://sysbio.ioc.ee/download/software/iocbio.microscope/cell_original.png
+
+= Point spread function =
+
+The point spread function was estimated from a cluster of microspheres (d=0.175um) measurements ([http://sysbio/download/software/iocbio.microscope/psf4_505_pxt50.tif.gz compressed TIF image (3.5MB)]):
+
+  http://sysbio.ioc.ee/download/software/iocbio.microscope/microspheres.png
+
+The estimated PSF ([http://sysbio/download/software/iocbio.microscope/psf_airy_478_water.tif.gz compressed TIF image (64KB)]) is:
+
+  http://sysbio.ioc.ee/download/software/iocbio.microscope/psf.png
