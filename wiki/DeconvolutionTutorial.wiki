@@ -1,4 +1,5 @@
 #summary Deconvolution tutorial
+#labels Featured
 
 = Introduction =
 
