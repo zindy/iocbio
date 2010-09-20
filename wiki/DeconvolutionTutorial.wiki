@@ -90,4 +90,5 @@ The 8th iteration result is
 
   http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_8.png
 
-that was suggested by the max lambda_lsq + 5 stopping criteria.
+that was suggested by the max lambda_lsq + 5 stopping criteria:
+http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_params.png
