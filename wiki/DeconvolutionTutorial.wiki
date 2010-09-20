@@ -1,24 +1,10 @@
 #summary Deconvolution tutorial
 
-{{{
------------------------------------------------
-This page will be updated within couple of days
------------------------------------------------
-Please stay tuned.
-
-Pearu Peterson
-September 17, 2010
-
-For an old tutorial, see
-
-  http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/
-}}}
-
 = Introduction =
 
 This tutorial introduces iocbio.deconvolve program for deconvolving microscope image with measured point spread function (PSF). 
 
-Note that in the following all iocbio programs are run with ``--no-gui`` options. Discarding this option from a command line will create a graphical user interface for specifying various options.
+Note that in the following all iocbio programs are run with ``--no-gui`` options. Discarding this option from a command line will create a graphical user interface for specifying various options. The old tutorial, http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/, shows how the GUI of various iocbio programs looks like.
 
 = Microscope image =
 
