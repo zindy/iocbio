@@ -13,7 +13,9 @@ Also note that all commands used for creating the data and figures for this docu
 
 As an example, let us consider the following microscope image of a rat cardiomyocyte with stained mitochondria that is acquired with a confocal microscope with photon counting detector ([http://sysbio.ioc.ee/download/software/iocbio.microscope/cell2_mitogreen_px25.tif.gz compressed TIF image (23MB)]):
 
-http://sysbio.ioc.ee/download/software/iocbio.microscope/cell_original.png
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/cell_original.png>
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/cell_original.png />
+</a>
 
 This view of a microscope image is created with the following command:
 {{{
@@ -24,14 +26,20 @@ iocbio.show -i cell2_mitogreen_px25.tif --view-3d=c,c,c --no-gui
 
 The point spread function was estimated from a cluster of microspheres (d=0.175um) measurements ([http://sysbio/download/software/iocbio.microscope/psf4_505_pxt50.tif.gz compressed TIF image (3.5MB)]):
 
-  http://sysbio.ioc.ee/download/software/iocbio.microscope/microspheres.png
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/microspheres.png>
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/microspheres.png />
+</a>
 
 The estimated PSF ([http://sysbio/download/software/iocbio.microscope/psf_airy_478_water.tif.gz compressed TIF image (64KB)]) is obtained by running:
 {{{
 iocbio.estimate_psf -i psf4_505_pxt50.tif --save-intermediate-results -o psf_airy_478_water.tif --no-gui
 }}}
 The result is shown below:
-  http://sysbio.ioc.ee/download/software/iocbio.microscope/psf.png
+
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/psf.png>
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/psf.png />
+</a>
+
 
 = Deconvolving microscope image =
 
@@ -64,12 +72,18 @@ iocbio.rowfile_plot -i result.tif.iocbio.deconvolve/deconvolve_data.txt --x-keys
 }}}
 that will show the evolution of estimated lambda_lsq, mse (mean square error of convolve(estimate, psf) and input image), tau1 (a measure of convergence):
 
-http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_params.png
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_params.png >
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_params.png />
+</a>
 
 We suggest stopping the iteration after 5 steps of lambda_lsq obtaining its maximum,
 that is at 7th iteration in this particular case. The result of 7th iteration
 is
-  http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_7.png
+
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_7.png >
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result_7.png />
+</a>
+
 that is created with:
 {{{
 iocbio.show -i result.tif.iocbio.deconvolve/result_7.tif --view-3d=c,c,c --no-gui
@@ -90,7 +104,12 @@ iocbio.deconvolve -i cell2_mitogreen_px25.tif -k psf_airy_478_water.tif -o resul
 }}}
 The 8th iteration result is
 
-  http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_8.png
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_8.png >
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_8.png />
+</a>
 
-that was suggested by the max lambda_lsq + 5 stopping criteria:
-http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_params.png
+that was suggested by the max lambda_lsq + 5 stopping criteria, see:
+
+<a href=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_params.png >
+<img width=400px, src=http://sysbio.ioc.ee/download/software/iocbio.microscope/deconvolve_result2_params.png />
+</a>
