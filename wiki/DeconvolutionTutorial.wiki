@@ -7,6 +7,8 @@ This tutorial introduces iocbio.deconvolve program for deconvolving microscope i
 
 Note that in the following all iocbio programs are run with ``--no-gui`` options. Discarding this option from a command line will create a graphical user interface for specifying various options. The old tutorial, http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/, shows how the GUI of various iocbio programs looks like.
 
+Also note that all commands used for creating the data and figures for this document is available in http://iocbio.googlecode.com/svn/trunk/iocbio/microscope/tutorial/mk_figures.sh
+
 = Microscope image =
 
 As an example, let us consider the following microscope image of a rat cardiomyocyte with stained mitochondria that is acquired with a confocal microscope with photon counting detector ([http://sysbio.ioc.ee/download/software/iocbio.microscope/cell2_mitogreen_px25.tif.gz compressed TIF image (23MB)]):
