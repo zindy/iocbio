@@ -42,7 +42,7 @@ To ease the process of installing required software for Windows users, below we 
     * libtiff: http://iocbio.googlecode.com/files/tiff-3.8.2-1.exe
     * pyfftw: http://iocbio.googlecode.com/files/PyFFTW3-0.2-svn.win32.exe
     * Matplotlib: http://iocbio.googlecode.com/files/matplotlib-1.0.svn.win32-py2.6.exe
-    * iocbio: http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev134.win32-py2.6.exe
+    * iocbio: http://iocbio.googlecode.com/files/iocbio-1.2.0.dev139.win32-py2.6.exe
     * and finally, restart your computer.
 
 You will find a new folder `IOCBio Software` in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
@@ -78,7 +78,7 @@ sudo python setup.py install
 cd ..
 
 # Install iocbio package:
-wget http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev139.tar.gz
+wget http://iocbio.googlecode.com/files/iocbio-1.2.0.dev139.tar.gz
 tar xzf iocbio-1.2.0.dev139.tar.gz
 cd iocbio-1.2.0.dev139
 sudo python setup.py install
