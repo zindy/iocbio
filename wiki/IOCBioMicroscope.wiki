@@ -16,10 +16,7 @@ For more information, see [http://sysbio.ioc.ee/download/software/iocbio/ IOCBio
 
 = Examples =
 
-Example PSF and stack of confocal images is available for download here:
-  http://sysbio.ioc.ee/download/software/ioc.microscope/example.zip
-
-A [http://sysbio.ioc.ee/download/software/ioc.microscope/tutorial/ short tutorial] is available on-line.
+See [DeconvolutionTutorial]
 
 = Installation =
 
