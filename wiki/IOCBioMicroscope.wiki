@@ -78,9 +78,9 @@ sudo python setup.py install
 cd ..
 
 # Install iocbio package:
-wget http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev133.tar.gz
-tar xzf iocbio-1.2.0.dev133.tar.gz
-cd iocbio-1.2.0.dev133
+wget http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev139.tar.gz
+tar xzf iocbio-1.2.0.dev139.tar.gz
+cd iocbio-1.2.0.dev139
 sudo python setup.py install
 cd ..
 }}}
