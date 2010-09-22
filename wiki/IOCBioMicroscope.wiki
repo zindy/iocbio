@@ -1,16 +1,6 @@
 #summary IOCBio Microscope package
 #labels Featured
 
-{{{
------------------------------------------------
-This page will be updated within couple of days
------------------------------------------------
-Please stay tuned.
-
-Pearu Peterson
-September 17, 2010
-}}}
-
 = Introduction =
 
 This software package allows to deconvolve microscope images. In addition to the deconvolution program, the package includes of the set of tools that are required for processing the images, estimation of point spread function (PSF) and visualizing the results. This software is written in Python and is released with an open-source license (see below).
@@ -55,7 +45,7 @@ To ease the process of installing required software for Windows users, below we 
     * libtiff: http://iocbio.googlecode.com/files/tiff-3.8.2-1.exe
     * pyfftw: http://iocbio.googlecode.com/files/PyFFTW3-0.2-svn.win32.exe
     * Matplotlib: http://iocbio.googlecode.com/files/matplotlib-1.0.svn.win32-py2.6.exe
-    * iocbio: to be announced
+    * iocbio: http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev134.win32-py2.6.exe
     * and finally, restart your computer.
 
 You will find a new folder `IOCBio Software` in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
@@ -91,9 +81,9 @@ sudo python setup.py install
 cd ..
 
 # Install iocbio package:
-wget http://tobeannounced
-tar xzf iocbio-1.1.0.tar.gz
-cd iocbio-1.1.0
+wget http://code.google.com/p/iocbio/downloads/detail?name=iocbio-1.2.0.dev133.tar.gz
+tar xzf iocbio-1.2.0.dev133.tar.gz
+cd iocbio-1.2.0.dev133
 sudo python setup.py install
 cd ..
 }}}
