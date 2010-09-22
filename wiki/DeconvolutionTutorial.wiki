@@ -66,7 +66,7 @@ lambda-lsq-coeff= 7.62231091018
 }}}
 Notice that the signal-to-noise ratio (SNR) is estimated to 7.8 which is rather small. This can also be observed from the microscope image above: noise is well visible.
 
-The result of deconvolution can be visualized by running
+The deconvolution process can be characterized by running
 {{{
 iocbio.rowfile_plot -i result.tif.iocbio.deconvolve/deconvolve_data.txt --x-keys=count --y-keys=lambda_lsq,mse,tau1 --no-gui
 }}}
