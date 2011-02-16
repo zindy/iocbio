@@ -92,15 +92,10 @@ iocbio.deconvolve
 
 == License and reference ==
 
-Please note that this software is NOT RELEASED until the manuscript describing the use of the software has been accepted for publication. Until then, the use of the software is allowed only by
-  * members of Laboratory of Systems Biology, Institute of Cybernetics at Tallinn University of Technology
-  * people involved in the reviewing process of the manuscript to access the scientific merit of the manuscript
-
-No distribution is allowed at this stage. The following text will be used instead this note after the acceptance of the manuscript.
-
 The iocbio package is distributed using an open-source license (BSD). In addition to the terms of the license, we ask to acknowledge the use of the package in scientific articles by citing the following paper:
 
-  * Laasmaa, M, Vendelin, M, Peterson, P (YEAR). Application of regularized Richardson-Lucy algorithm for deconvolution of confocal microscopy images. JOURNAL INFORMATION
+  * Laasmaa, M, Vendelin, M, Peterson, P (2011). Application of regularized Richardson-Lucy algorithm for deconvolution of confocal microscopy images. J. Microscopy. In press.
+   http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2818.2011.03486.x/abstract
 
 = Acknowledgments =
 
