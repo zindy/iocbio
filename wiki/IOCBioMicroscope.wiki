@@ -54,7 +54,7 @@ The following commands install all prerequisites as well as iocbio.microscope so
 Ubuntu/Debian:
 {{{
 sudo apt-get install python-dev python-numpy python-scipy python-wxgtk2.6 \
-                     python-matplotlib libtiff4-dev libfftw3-dev
+                     python-matplotlib libtiff4-dev libfftw3-dev gfortran
 }}}
 
 Other:
@@ -78,9 +78,8 @@ sudo python setup.py install
 cd ..
 
 # Install iocbio package:
-wget http://iocbio.googlecode.com/files/iocbio-1.2.0.dev139.tar.gz
-tar xzf iocbio-1.2.0.dev139.tar.gz
-cd iocbio-1.2.0.dev139
+svn checkout http://iocbio.googlecode.com/svn/trunk/ iocbio-read-only
+cd iocbio-read-only
 sudo python setup.py install
 cd ..
 }}}
