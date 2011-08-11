@@ -33,17 +33,11 @@ The sources of iocbio.microscope is available via [http://code.google.com/p/iocb
 
 == Windows users ==
 
-To ease the process of installing required software for Windows users, below we provide direct links to the corresponding installers. The installers should be executed in the given order:
+To ease the process of installing required software and iocbio package for Windows users, we provide an [installers for various Python versions:
 
-    * Python: http://iocbio.googlecode.com/files/python-2.6.2.msi
-    * WX Python: http://iocbio.googlecode.com/files/wxPython2.8-win32-unicode-2.8.9.2-py26.exe
-    * Numpy: http://iocbio.googlecode.com/files/numpy-1.4.0.dev6882.win32-py2.6.exe
-    * Scipy: http://iocbio.googlecode.com/files/scipy-0.8.0.dev5953.win32-py2.6.exe
-    * libtiff: http://iocbio.googlecode.com/files/tiff-3.8.2-1.exe
-    * pyfftw: http://iocbio.googlecode.com/files/PyFFTW3-0.2-svn.win32.exe
-    * Matplotlib: http://iocbio.googlecode.com/files/matplotlib-1.0.svn.win32-py2.6.exe
-    * iocbio: http://iocbio.googlecode.com/files/iocbio-1.2.0.dev139.win32-py2.6.exe
-    * and finally, restart your computer.
+  * [http://sysbio.ioc.ee/download/software/binaries/latest/iocbio_installer_py26.exe iocbio_installer_py26.exe]
+
+The installer should be run as Administrator. Computer restart is required to finalise any PATH updates.
 
 You will find a new folder `IOCBio Software` in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
 
