@@ -21,6 +21,7 @@ See [DeconvolutionTutorial]
 = Installation =
 
 Since _iocbio.microscope_ is written in Python language and uses various scientific computational modules and provides basic graphical interfaces, then the following software (with all their dependencies) must be installed to use IOCBio Microscope Software:
+
   * [http://www.python.org/ Python] - an easy to learn, powerful programming language.
   * [http://www.wxpython.org/ WX Python] - a GUI toolkit for the Python programming language.
   * [http://www.numpy.org/ Numpy] - the fundamental package needed for scientific computing with Python.
@@ -44,6 +45,8 @@ When some required software component is not found then the iocbio installer can
 Finally, computer restart is required to finalise any PATH updates.
 
 You will find a new folder `IOCBio Software` in your computers Desktop that contains links to iocbio.microscope scripts. Double-click on the links to start GUI of the corresponding program.
+
+To get updates for IOCBio Software, rerun the iocbio installer and at the Iocbio configuration tab select {{{Update and install iocbio from svn}}}.
 
 == Linux users ==
 
