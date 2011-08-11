@@ -37,7 +37,7 @@ To ease the process of installing required software and iocbio package for Windo
 
   * [http://sysbio.ioc.ee/download/software/binaries/latest/iocbio_installer_py26.exe iocbio_installer_py26.exe]
 
-The installer should be run as Administrator. 
+The installer should be run as Administrator. So, you must download the installer, save it to disk, and then right-click it and choose {{{Run as administrator}}} menu item.
 
 When some required software component is not found then the iocbio installer can download and run the corresponding installers, just be ready to click Next, Next, ... and accept all default installation options,
 
