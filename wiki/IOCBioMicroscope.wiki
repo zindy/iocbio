@@ -27,7 +27,7 @@ Since _iocbio.microscope_ is written in Python language and uses various scienti
   * [http://www.numpy.org/ Numpy] - the fundamental package needed for scientific computing with Python.
   * [http://www.scipy.org/ Scipy] - an open-source software for mathematics, science, and engineering.
   * [http://www.libtiff.org/ libtiff] - provides support for the Tag Image File Format (TIFF).
-  * [http://developer.berlios.de/projects/pyfftw/ pyfftw] - Python bindings to the FFTW3 C-library.
+  * [http://www.launchpad.net/pyfftw pyfftw] - Python bindings to the FFTW3 C-library.
   * [http://matplotlib.sourceforge.net/ Matplotlib] - a python 2D plotting library (optional).
 
 The sources of iocbio.microscope is available via [http://code.google.com/p/iocbio/source/list SVN] and HTTP. Note that iocbio.microscope requires Python 2.5 or newer. Python 2.5 users must also install the backport of the [http://code.google.com/p/python-multiprocessing/ multiprocessing] package.
@@ -57,7 +57,7 @@ The following commands install all prerequisites as well as iocbio.microscope so
 
 Ubuntu/Debian:
 {{{
-sudo apt-get install python-dev python-numpy python-scipy python-wxgtk2.6 \
+sudo apt-get install python-dev python-numpy python-scipy python-wxgtk2.8 \
                      python-matplotlib libtiff4-dev libfftw3-dev gfortran
 }}}
 
@@ -70,9 +70,9 @@ Other:
 Finally, all Linux distributions should execute the following commands:
 {{{
 # Install pyfftw:
-svn checkout http://svn.berlios.de/svnroot/repos/pyfftw/PyFFTW/trunk  pyfftw
+bzr branch lp:pyfftw
 cd pyfftw
-sudo python setup.py install
+python setup.py install --prefix=/usr/local/
 cd ..
 
 # Only for Python 2.5 users, install multiprocessing:
