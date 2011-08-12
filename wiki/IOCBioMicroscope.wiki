@@ -97,12 +97,11 @@ iocbio.deconvolve
 
 The iocbio package is distributed using an open-source license (BSD). In addition to the terms of the license, we ask to acknowledge the use of the package in scientific articles by citing the following paper:
 
-  * Laasmaa, M, Vendelin, M, Peterson, P (2011). Application of regularized Richardson-Lucy algorithm for deconvolution of confocal microscopy images. J. Microscopy. In press. http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2818.2011.03486.x/abstract
-
+  * Laasmaa, M, Vendelin, M, Peterson, P (2011). Application of regularized Richardson-Lucy algorithm for deconvolution of confocal microscopy images. J. Microscopy. Volume 243,  Issue 2 , pages 124–140, August 2011: http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2818.2011.03486.x/full
 = Acknowledgments =
 
 The iocbio software uses the following third-party software (included in the package):
   * [http://www.lfd.uci.edu/~gohlke/code/tifffile.py.html tifffile.py] - Read TIFF, STK, LSM and FluoView files and access image data as NumPy array.
   * [http://code.google.com/p/pylibtiff/ pylibtiff] - Wraps [http://www.libtiff.org/ libtiff] library to Python using [http://docs.python.org/library/ctypes.html ctypes].
   * [http://benjamin.smedbergs.us/blog/2006-12-11/killableprocesspy/ killableprocess] - Extends [http://docs.python.org/library/subprocess.html subprocess] such that the process and all of its sub-subprocesses are killed correctly, on Windows, Mac, and Linux.
-  * Windows installers are build using [http://www.mingw.org/ MinGW] under [http://www.ubuntu.com/ Ubuntu Linux] ([http://code.google.com/p/sympycore/wiki/BuildWindowsInstallerOnLinux howto]) and using library packages from the [http://gnuwin32.sourceforge.net/ GnuWin32] project.
+  * Windows installers are build using [http://www.mingw.org/ MinGW] under [http://www.ubuntu.com/ Ubuntu Linux] ([http://code.google.com/p/sympycore/wiki/BuildWindowsInstallerOnLinux howto]) and using library packages from the [http://gnuwin32.sourceforge.net/ GnuWin32] project. See iocbio/installer directory for the source code.
