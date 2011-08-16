@@ -37,6 +37,7 @@ The sources of iocbio.microscope is available via [http://code.google.com/p/iocb
 To ease the process of installing required software and iocbio package for Windows users, we provide installers for various Python versions (if you don't have any installed, just pick one from the list):
 
   * [http://iocbio.googlecode.com/files/iocbio_installer_py26.exe iocbio_installer_py26.exe]
+  * [http://sysbio.ioc.ee/download/software/binaries/latest/ for other Python versions]
 
 The installer should be run as Administrator. So, you must download the installer, save it to disk, and then right-click it and choose {{{"Run as administrator"}}} menu item.
 
