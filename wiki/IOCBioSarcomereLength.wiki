@@ -23,9 +23,9 @@ This page describes how to use the provided software.
 
 First, download `libfperiod` source code. The source code consists of three files:
 
-  * [libfperiod.c http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/libfperiod.c] - source code to be compiled and linked with your C program
-  * [libfperiod.h http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/libfperiod.h] - header file to be included
-  * [demo.c http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/demo.c] - demo code illustrating the basic usage of determining the fundamental period of a sine function.
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/libfperiod.c libfperiod.c] - source code to be compiled and linked with your C program
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/libfperiod.h libfperiod.h] - header file to be included
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/fperiod/src/demo.c demo.c] - demo code illustrating the basic usage of determining the fundamental period of a sine function.
 
 Second, study the demo program above that shows how to call the `iocbio_fperiod` function from your C program. Here follows an example session:
 {{{
