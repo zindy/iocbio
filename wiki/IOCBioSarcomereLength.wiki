@@ -45,3 +45,33 @@ The `libfperiod` API exposes the following functions to users (see `libfperiod.h
   * iocbio_fperiod_cached - same as iocbio_fperiod but with extra cache argument that can be used to avoid malloc/free cycle in repetitive computations of the fundamental period.
   * iocbio_objective - evaluate the similarity measure that defines the fundamental period of a signal sequence as its first non-zero minimum point
   * iocbio_detrend - apply detrend algorithm to a signal sequence
+
+= Usage from a Python program =
+
+First, you must install `iocbio` Python package version `1.3` or newer.
+
+Here follows an example Python session using the `iocbio.fperiod` package:
+{{{
+>>> from iocbio import fperiod
+>>> print fperiod.fperiod.__doc__
+fperiod - Function signature:
+  period = fperiod(f,[initial_period,detrend,method])
+Required arguments:
+  f : input rank-2 array('d') with bounds (m,n)
+Optional arguments:
+  initial_period := 0.0 input float
+  detrend := 0 input int
+  method := 0 input int
+Return objects:
+  period : float
+
+>>> from numpy import sin, arange, pi
+>>> N = 30; i = arange(N)
+>>> P = 5.4
+>>> f = sin(2*pi*i/P)
+>>> Pest = fperiod.fperiod(f)
+>>> print 'Estimated fundamental period:',Pest
+Estimated fundamental period: 5.3917452931
+>>> print 'Relative error of the estimate:',(1-Pest/P)*100,'%'
+Relative error of the estimate: 0.152864942528 %
+}}}
