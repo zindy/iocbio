@@ -66,12 +66,12 @@ Return objects:
   period : float
 
 >>> from numpy import sin, arange, pi
->>> N = 30; i = arange(N)
+>>> N = 20; i = arange(N)
 >>> P = 5.4
 >>> f = sin(2*pi*i/P)
 >>> Pest = fperiod.fperiod(f)
 >>> print 'Estimated fundamental period:',Pest
-Estimated fundamental period: 5.3917452931
+Estimated fundamental period: 5.3893279719
 >>> print 'Relative error of the estimate:',(1-Pest/P)*100,'%'
-Relative error of the estimate: 0.152864942528 %
+Relative error of the estimate: 0.197630149933 %
 }}}
