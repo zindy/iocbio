@@ -18,8 +18,8 @@ This page describes how to use the provided software.
 
 First, download the source code and example file:
 
-  * [http://iocbio.googlecode.com/svn/trunk/iocbio/iocbio/kinetics/builder.py builder.py] - Python code that provides the symbolic equation generator. 
-  * [http://iocbio.googlecode.com/svn/trunk/iocbio/iocbio/kinetics/oxygen_isotope_model.py oxygen_isotope_model.py] - Oxygen isotope network studied in the above paper.
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/builder.py builder.py] - Python code that provides the symbolic equation generator. 
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/oxygen_isotope_model.py oxygen_isotope_model.py] - Oxygen isotope network studied in the above paper.
 
 Please examine the example file for instructions on how to modify the isotopologue model to your needs.  
 
