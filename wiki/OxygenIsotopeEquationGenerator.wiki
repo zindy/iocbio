@@ -32,6 +32,25 @@ To build the demonstration model, please make sure that
 as the example file `iocbio.kinetics.demo_model` and run the example file with a Python interpreter. The script outputs the equations generated:
 {{{
 >>> python demo_model.py
+# See IsotopeModel.parse_system_string.__doc__ for syntax of the system string.
+#
+# Definitions of species labeling
+# <species name> = <species name>[<labeling pattern>]
+#
+A = A[*]
+B = B[*]
+C = C[**]
+Ai = Ai[*]
+Co = Co[**]
+
+#
+# Definitions of reactions
+# <reaction name> : <sum of reactants> (<=|=>|<=>) <sum of products>
+#
+flux : A + B <=> C
+in : A <= Ai
+out : C => Co
+
 Model kinetic equations:
   dA0/dt = +fin*(Ai0)+rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A0*B1)
   dA1/dt = +fin*(Ai1)+rflux*(1/2*C01+1/2*C10+C11)-fflux*(A1*B0+A1*B1)
