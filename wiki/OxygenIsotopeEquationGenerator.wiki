@@ -20,7 +20,9 @@ demonstrates its use.
 First, download the source code and example files:
 
   * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/builder.py builder.py] - Python code that provides the symbolic equation generator. 
-* [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/demo_model.py demo_model.py] - Minimal model to demonstrate the interface and illustrate how the equations are generated.
+
+  * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/demo_model.py demo_model.py] - Minimal model to demonstrate the interface and illustrate how the equations are generated.
+
   * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/oxygen_isotope_model.py oxygen_isotope_model.py] - Oxygen isotope network studied in the above paper.
 
 Please examine the example files for instructions on how to build a custom mass isotopologue model.  
