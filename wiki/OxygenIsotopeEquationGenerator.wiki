@@ -4,7 +4,7 @@
 = Introduction =
 
 IOCBio provides a python module `iocbio.kinetics.builder` that constructs mass isotopologue equations.
-Another module is provided `iocbio.kinetics.oxygen_isotope_model` that demonstrates how to use the builder
+Another module is provided `iocbio.kinetics.demo_model` that demonstrates how to use the builder
 software. The system built by `iocbio.kinetics.oxygen_isotope_model` is studied in the following publication
 {{{
 David W. Schryer, Pearu Peterson, Ardo Illaste, Marko Vendelin.
@@ -12,38 +12,95 @@ Sensitivity analysis of flux determination in heart by H218O-provided
 labeling using a dynamic isotopologue model of energy transfer pathways
 PLoS Computational Biology.
 }}}
-This page describes how to use the provided software.
+This page presents the software provided by this publication and 
+demonstrates its use.
 
 = Usage =
 
-First, download the source code and example file:
+First, download the source code and example files:
 
   * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/builder.py builder.py] - Python code that provides the symbolic equation generator. 
+* [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/demo_model.py demo_model.py] - Minimal model to demonstrate the interface and illustrate how the equations are generated.
   * [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/oxygen_isotope_model.py oxygen_isotope_model.py] - Oxygen isotope network studied in the above paper.
 
-Please examine the example file for instructions on how to modify the isotopologue model to your needs.  
+Please examine the example files for instructions on how to build a custom mass isotopologue model.  
+
+To build the demonstration model, please make sure that 
+`iocbio.kinetics.builder` is in the same directory 
+as the example file `iocbio.kinetics.demo_model` and run the example file with a Python interpreter. The script outputs the equations generated:
+{{{
+>>> python demo_model.py
+Model kinetic equations:
+  dA0/dt = +fin*(Ai0)+rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A0*B1)
+  dA1/dt = +fin*(Ai1)+rflux*(1/2*C01+1/2*C10+C11)-fflux*(A1*B0+A1*B1)
+  dAi0/dt = -fin*(Ai0)
+  dAi1/dt = -fin*(Ai1)
+  dB0/dt = +rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A1*B0)
+  dB1/dt = +rflux*(1/2*C01+1/2*C10+C11)-fflux*(A0*B1+A1*B1)
+  dC00/dt = +fflux*(A0*B0)-fout*(C00)-rflux*(C00)
+  dC01/dt = +fflux*(1/2*A0*B1+1/2*A1*B0)-fout*(C01)-rflux*(C01)
+  dC10/dt = +fflux*(1/2*A0*B1+1/2*A1*B0)-fout*(C10)-rflux*(C10)
+  dC11/dt = +fflux*(A1*B1)-fout*(C11)-rflux*(C11)
+  dCo00/dt = +fout*(C00)
+  dCo01/dt = +fout*(C01)
+  dCo10/dt = +fout*(C10)
+  dCo11/dt = +fout*(C11)
+Pool relations:
+  A_0 = A0
+  A_1 = A1
+  Ai_0 = Ai0
+  Ai_1 = Ai1
+  B_0 = B0
+  B_1 = B1
+  C_0 = C00
+  C_1 = C01+C10
+  C_2 = C11
+  Co_0 = Co00
+  Co_1 = Co01+Co10
+  Co_2 = Co11
+Applying pool relations:
+  dA_0/dt = +fin*(Ai0)+rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A0*B1)
+  dA_1/dt = +fin*(Ai1)+rflux*(1/2*C01+1/2*C10+C11)-fflux*(A1*B0+A1*B1)
+  dAi_0/dt = -fin*(Ai0)
+  dAi_1/dt = -fin*(Ai1)
+  dB_0/dt = +rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A1*B0)
+  dB_1/dt = +rflux*(1/2*C01+1/2*C10+C11)-fflux*(A0*B1+A1*B1)
+  dC_0/dt = +fflux*(A0*B0)-fout*(C00)-rflux*(C00)
+  dC_1/dt = +fflux*(A0*B1+A1*B0)-fout*(C01+C10)-rflux*(C01+C10)
+  dC_2/dt = +fflux*(A1*B1)-fout*(C11)-rflux*(C11)
+  dCo_0/dt = +fout*(C00)
+  dCo_1/dt = +fout*(C01+C10)
+  dCo_2/dt = +fout*(C11)
+Substituting pool relations to RHS.. done
+Mass isotopomer kinetic equations:
+  dA_0/dt = +fin*(Ai_0)+rflux*(1/2*C_1+C_0)-fflux*((B_0+B_1)*A_0)
+  dA_1/dt = +fin*(Ai_1)+rflux*(1/2*C_1+C_2)-fflux*((B_0+B_1)*A_1)
+  dAi_0/dt = -fin*(Ai_0)
+  dAi_1/dt = -fin*(Ai_1)
+  dB_0/dt = +rflux*(1/2*C_1+C_0)-fflux*((A_0+A_1)*B_0)
+  dB_1/dt = +rflux*(1/2*C_1+C_2)-fflux*((A_0+A_1)*B_1)
+  dC_0/dt = +fflux*(A_0*B_0)-fout*(C_0)-rflux*(C_0)
+  dC_1/dt = +fflux*(A_0*B_1+A_1*B_0)-fout*(C_1)-rflux*(C_1)
+  dC_2/dt = +fflux*(A_1*B_1)-fout*(C_2)-rflux*(C_2)
+  dCo_0/dt = +fout*(C_0)
+  dCo_1/dt = +fout*(C_1)
+  dCo_2/dt = +fout*(C_2)
+}}}
 
 To create the model studied in the above paper, please make sure that `iocbio.kinetics.builder` is in the same directory 
-as the example file `iocbio.kinetics.oxygen_isotope_model` and run the example file with a Python interpreter. One can 
-examine the contents of the file generated to view the equations:
+as the example file `iocbio.kinetics.oxygen_isotope_model` and run the example file with a Python interpreter. One can examine the contents of the files generated to view the equations.  The output from this script only describes what the 
+algorithm is doing:
 {{{
 >>> python oxygen_isotope_model.py
 Generating isotopologue equations:
 Performing first term collection.
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 Performing second term collection.
-1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99  100  101  102  103  104  105  106  107  108  109  110  111  112  113  114  115  116  117  118  119  120  121  122  123  124  125  126  127  128  129  130  131  132  133  134  135  136  137  138  139  140  141  142  143  144  145  146  147  148  149  150  151  152  153  154  155  156  157  158  159  160  161  162  163  164  165  166  167  168  169  170  171  172  173  174  175  176  177  178  179  180  181  182  183  184  185  186  187  188  189  190  191  192  193  194  195  196  197  198  199  200  201  202  203  204  205  206  207  208  209  210  211  212  213  214  215  216  217  218  219  220  221  222  223  224  225  226  227  228  229  230  231  232  233  234  235  236  237  238  239  240  241  242  243  244  245  246  247  248  249  250  251  252  253  254  255  256  257  258  259  260  261  262  263  264  265  266  267  268  269  270  271  272  273  274  275  276  277  278  279  280  281  282  283  284  285  286  287  288  289  290  291  292  293  294  295  296  297  298  299  300  301  302  303  304  305  306  307  308  309  310  311  312  313  314  315  316  317  318  319  320  321  322  323  324  325  326  327  328  329  330  331  332  333  334  335  336  337  338  339  340  341  342  343  344  345  346  347  348  349  350  351  352  353  354  355  356  357  358  359  360  361  362  363  364  365  366  367  368  369  370  371  372  373  374  375  376  377  378  379  380  381  382  383  384  385  386  387  388  389  390  391  392  393  394  395  396  397  398  399  400  401  402  403  404  405  406  407  408  409  410  411  412  413  414  415  416  417  418  419  420  421  422  423  424  425  426  427  428  429  430  431  432  433  434  435  436  437  438  439  440  441  442  443  444  445  446  
-
 Generating mass isotopologue equations:
 Applying pool relations.
 Performing first term collection.
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 Performing second term collection.
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 Performing third term collection.
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  
 Performing final term collection.
-1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99  100  101  102  103  104  105  106  107  108  109  110  111  112  113  114  115  116  117  118  119  120  121  122  123  124  125  126  127  128  129  130  131  132  133  134  
 
 Wrote:  model_3000_mass.c
 Wrote:  model_3000_mass_c_variables.py
