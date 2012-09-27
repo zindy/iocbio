@@ -31,88 +31,98 @@ To build the demonstration model, please make sure that
 `iocbio.kinetics.builder` is in the same directory 
 as the example file `iocbio.kinetics.demo_model` and run the example file with a Python interpreter. The script outputs the equations generated:
 {{{
->>> python demo_model.py
-# See IsotopeModel.parse_system_string.__doc__ for syntax of the system string.
+$ python demo_model.py 
+
+# See IsotopeModel.parse_system_string.__doc__ for syntax specifications.
 #
 # Definitions of species labeling
 # <species name> = <species name>[<labeling pattern>]
 #
-A = A[*]
+A = A[**]
 B = B[*]
-C = C[**]
-Ai = Ai[*]
-Co = Co[**]
+C = C[**_*]
 
 #
 # Definitions of reactions
-# <reaction name> : <sum of reactants> (<=|=>|<=>) <sum of products>
+# <flux name> : <sum of reactants> (<=|=>|<=>) <sum of products>
 #
-flux : A + B <=> C
-in : A <= Ai
-out : C => Co
+F1 : A + B <=> C
 
-Model kinetic equations:
-  dA0/dt = +fin*(Ai0)+rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A0*B1)
-  dA1/dt = +fin*(Ai1)+rflux*(1/2*C01+1/2*C10+C11)-fflux*(A1*B0+A1*B1)
-  dAi0/dt = -fin*(Ai0)
-  dAi1/dt = -fin*(Ai1)
-  dB0/dt = +rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A1*B0)
-  dB1/dt = +rflux*(1/2*C01+1/2*C10+C11)-fflux*(A0*B1+A1*B1)
-  dC00/dt = +fflux*(A0*B0)-fout*(C00)-rflux*(C00)
-  dC01/dt = +fflux*(1/2*A0*B1+1/2*A1*B0)-fout*(C01)-rflux*(C01)
-  dC10/dt = +fflux*(1/2*A0*B1+1/2*A1*B0)-fout*(C10)-rflux*(C10)
-  dC11/dt = +fflux*(A1*B1)-fout*(C11)-rflux*(C11)
-  dCo00/dt = +fout*(C00)
-  dCo01/dt = +fout*(C01)
-  dCo10/dt = +fout*(C10)
-  dCo11/dt = +fout*(C11)
-Pool relations:
-  A_0 = A0
-  A_1 = A1
-  Ai_0 = Ai0
-  Ai_1 = Ai1
+Reactions split to elementary reactions:
+  B+A <=rF1==fF1=> C
+    B0+A00 -fF1-> C00_0
+    B0+A01 -fF1-> C01_0
+    B0+A10 -fF1-> C10_0
+    B0+A11 -fF1-> C11_0
+    B1+A00 -fF1-> C00_1
+    B1+A01 -fF1-> C01_1
+    B1+A10 -fF1-> C10_1
+    B1+A11 -fF1-> C11_1
+    C00_0 -rF1-> B0+A00
+    C00_1 -rF1-> B1+A00
+    C01_0 -rF1-> B0+A01
+    C01_1 -rF1-> B1+A01
+    C10_0 -rF1-> B0+A10
+    C10_1 -rF1-> B1+A10
+    C11_0 -rF1-> B0+A11
+    C11_1 -rF1-> B1+A11
+Kinetic equations from elementary reactions:
+  A * dA00/dt = +rF1*(C00_0+C00_1)-fF1*(A00*B0+A00*B1)
+  A * dA01/dt = +rF1*(C01_0+C01_1)-fF1*(A01*B0+A01*B1)
+  A * dA10/dt = +rF1*(C10_0+C10_1)-fF1*(A10*B0+A10*B1)
+  A * dA11/dt = +rF1*(C11_0+C11_1)-fF1*(A11*B0+A11*B1)
+  B * dB0/dt = +rF1*(C00_0+C01_0+C10_0+C11_0)-fF1*(A00*B0+A01*B0+A10*B0+A11*B0)
+  B * dB1/dt = +rF1*(C00_1+C01_1+C10_1+C11_1)-fF1*(A00*B1+A01*B1+A10*B1+A11*B1)
+  C * dC00_0/dt = +fF1*(A00*B0)-rF1*(C00_0)
+  C * dC00_1/dt = +fF1*(A00*B1)-rF1*(C00_1)
+  C * dC01_0/dt = +fF1*(A01*B0)-rF1*(C01_0)
+  C * dC01_1/dt = +fF1*(A01*B1)-rF1*(C01_1)
+  C * dC10_0/dt = +fF1*(A10*B0)-rF1*(C10_0)
+  C * dC10_1/dt = +fF1*(A10*B1)-rF1*(C10_1)
+  C * dC11_0/dt = +fF1*(A11*B0)-rF1*(C11_0)
+  C * dC11_1/dt = +fF1*(A11*B1)-rF1*(C11_1)
+  where A, B, C are pool sizes.
+Definitions of pool relations:
+  A_0 = A00
+  A_1 = A01+A10
+  A_2 = A11
   B_0 = B0
   B_1 = B1
-  C_0 = C00
-  C_1 = C01+C10
-  C_2 = C11
-  Co_0 = Co00
-  Co_1 = Co01+Co10
-  Co_2 = Co11
-Applying pool relations:
-  dA_0/dt = +fin*(Ai0)+rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A0*B1)
-  dA_1/dt = +fin*(Ai1)+rflux*(1/2*C01+1/2*C10+C11)-fflux*(A1*B0+A1*B1)
-  dAi_0/dt = -fin*(Ai0)
-  dAi_1/dt = -fin*(Ai1)
-  dB_0/dt = +rflux*(1/2*C01+1/2*C10+C00)-fflux*(A0*B0+A1*B0)
-  dB_1/dt = +rflux*(1/2*C01+1/2*C10+C11)-fflux*(A0*B1+A1*B1)
-  dC_0/dt = +fflux*(A0*B0)-fout*(C00)-rflux*(C00)
-  dC_1/dt = +fflux*(A0*B1+A1*B0)-fout*(C01+C10)-rflux*(C01+C10)
-  dC_2/dt = +fflux*(A1*B1)-fout*(C11)-rflux*(C11)
-  dCo_0/dt = +fout*(C00)
-  dCo_1/dt = +fout*(C01+C10)
-  dCo_2/dt = +fout*(C11)
-Substituting pool relations to RHS.. done
-Mass isotopomer kinetic equations:
-  dA_0/dt = +fin*(Ai_0)+rflux*(1/2*C_1+C_0)-fflux*((B_0+B_1)*A_0)
-  dA_1/dt = +fin*(Ai_1)+rflux*(1/2*C_1+C_2)-fflux*((B_0+B_1)*A_1)
-  dAi_0/dt = -fin*(Ai_0)
-  dAi_1/dt = -fin*(Ai_1)
-  dB_0/dt = +rflux*(1/2*C_1+C_0)-fflux*((A_0+A_1)*B_0)
-  dB_1/dt = +rflux*(1/2*C_1+C_2)-fflux*((A_0+A_1)*B_1)
-  dC_0/dt = +fflux*(A_0*B_0)-fout*(C_0)-rflux*(C_0)
-  dC_1/dt = +fflux*(A_0*B_1+A_1*B_0)-fout*(C_1)-rflux*(C_1)
-  dC_2/dt = +fflux*(A_1*B_1)-fout*(C_2)-rflux*(C_2)
-  dCo_0/dt = +fout*(C_0)
-  dCo_1/dt = +fout*(C_1)
-  dCo_2/dt = +fout*(C_2)
+  C_0_0 = C00_0
+  C_0_1 = C00_1
+  C_1_0 = C01_0+C10_0
+  C_1_1 = C01_1+C10_1
+  C_2_0 = C11_0
+  C_2_1 = C11_1
+Time derivatives of pool relations with substituted elementary kinetic equations:
+  A * dA_0/dt = +rF1*(C00_0+C00_1)-fF1*(A00*B0+A00*B1)
+  A * dA_1/dt = +rF1*(C01_0+C01_1+C10_0+C10_1)-fF1*(A01*B0+A01*B1+A10*B0+A10*B1)
+  A * dA_2/dt = +rF1*(C11_0+C11_1)-fF1*(A11*B0+A11*B1)
+  B * dB_0/dt = +rF1*(C00_0+C01_0+C10_0+C11_0)-fF1*(A00*B0+A01*B0+A10*B0+A11*B0)
+  B * dB_1/dt = +rF1*(C00_1+C01_1+C10_1+C11_1)-fF1*(A00*B1+A01*B1+A10*B1+A11*B1)
+  C * dC_0_0/dt = +fF1*(A00*B0)-rF1*(C00_0)
+  C * dC_0_1/dt = +fF1*(A00*B1)-rF1*(C00_1)
+  C * dC_1_0/dt = +fF1*(A01*B0+A10*B0)-rF1*(C01_0+C10_0)
+  C * dC_1_1/dt = +fF1*(A01*B1+A10*B1)-rF1*(C01_1+C10_1)
+  C * dC_2_0/dt = +fF1*(A11*B0)-rF1*(C11_0)
+  C * dC_2_1/dt = +fF1*(A11*B1)-rF1*(C11_1)
+Mass isotopomer kinetic equations with substituded pool relations:
+  A * dA_0/dt = +rF1*(C_0_0+C_0_1)-fF1*((B_0+B_1)*A_0)
+  A * dA_1/dt = +rF1*(C_1_0+C_1_1)-fF1*((B_0+B_1)*A_1)
+  A * dA_2/dt = +rF1*(C_2_0+C_2_1)-fF1*((B_0+B_1)*A_2)
+  B * dB_0/dt = +rF1*(C_0_0+C_1_0+C_2_0)-fF1*((A_0+A_1+A_2)*B_0)
+  B * dB_1/dt = +rF1*(C_0_1+C_1_1+C_2_1)-fF1*((A_0+A_1+A_2)*B_1)
+  C * dC_0_0/dt = +fF1*(A_0*B_0)-rF1*(C_0_0)
+  C * dC_0_1/dt = +fF1*(A_0*B_1)-rF1*(C_0_1)
+  C * dC_1_0/dt = +fF1*(A_1*B_0)-rF1*(C_1_0)
+  C * dC_1_1/dt = +fF1*(A_1*B_1)-rF1*(C_1_1)
+  C * dC_2_0/dt = +fF1*(A_2*B_0)-rF1*(C_2_0)
+  C * dC_2_1/dt = +fF1*(A_2*B_1)-rF1*(C_2_1)
 }}}
 
-To create the model studied in the above paper, please make sure that `iocbio.kinetics.builder` is in the same directory 
-as the example file `iocbio.kinetics.oxygen_isotope_model` and run the example file with a Python interpreter. One can examine the contents of the files generated to view the equations.  The output from this script only describes what the 
-algorithm is doing:
+To create the model studied in the above paper, please make sure that `builder.py` script is in the same directory as the example file `oxygen_isotope_model.py` and run the example file with a Python interpreter. One can examine the contents of the files generated to view the equations.  The output from this script only describes what the algorithm is doing:
 {{{
->>> python oxygen_isotope_model.py
+$ python oxygen_isotope_model.py
 Generating isotopologue equations:
 Performing first term collection.
 Performing second term collection.
@@ -124,5 +134,5 @@ Performing third term collection.
 Performing final term collection.
 
 Wrote:  model_3000_mass.c
-Wrote:  model_3000_mass_c_variables.py
 }}}
+The expected output file can be found [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/model_3000_mass.py here] that contains a C function of mass isotopomer kinetic equations, see the header of the file for documentation.
