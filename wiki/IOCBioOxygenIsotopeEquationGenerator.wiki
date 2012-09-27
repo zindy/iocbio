@@ -2,9 +2,9 @@
 
 = Introduction =
 
-IOCBio provides a python module `iocbio.kinetics.builder` that constructs mass isotopologue equations.
-Another module is provided `iocbio.kinetics.demo_model` that demonstrates how to use the builder
-software. The system built by `iocbio.kinetics.oxygen_isotope_model` is studied in the following publication
+IOCBio provides a python module `builder.py` that constructs mass isotopologue equations.
+Another module is provided `demo_model.py` that demonstrates how to use the builder
+software. The system built by `oxygen_isotope_model.py` is studied in the following publication
 {{{
 David W. Schryer, Pearu Peterson, Ardo Illaste, Marko Vendelin.
 Sensitivity analysis of flux determination in heart by H218O-provided 
@@ -27,8 +27,8 @@ First, download the source code and example files:
 Please examine the example files for instructions on how to build a custom mass isotopologue model.  
 
 To build the demonstration model, please make sure that 
-`iocbio.kinetics.builder` is in the same directory 
-as the example file `iocbio.kinetics.demo_model` and run the example file with a Python interpreter. The script outputs the equations generated:
+`builder.py` is in the same directory 
+as the example file `demo_model.py` and run the example file with a Python interpreter. The script outputs the equations generated:
 {{{
 $ python demo_model.py 
 
