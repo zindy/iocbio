@@ -135,4 +135,4 @@ Performing final term collection.
 
 Wrote:  model_3000_mass.c
 }}}
-The expected output file can be found [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/model_3000_mass.py here] that contains a C function of mass isotopomer kinetic equations, see the header of the file for documentation.
+The expected output file can be found [http://iocbio.googlecode.com/svn/trunk/iocbio/kinetics/model_3000_mass.c here] that contains a C function of mass isotopomer kinetic equations, see the header of the file for documentation.
