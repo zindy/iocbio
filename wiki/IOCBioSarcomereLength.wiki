@@ -4,11 +4,9 @@
 = Introduction =
 
 IOCBio provides a C library `libfperiod` and Python package `iocbio.fperiod` with tools to determine the fundamental period of a signal with an application to estimating sarcomere length of a single cardiomyocyte from its microscopy image. The underlying theory of the method is described in a paper
-{{{
-Pearu Peterson, Mari Kalda, Marko Vendelin.
-Real-time Determination of Sarcomere Length of a Single Cardiomyocyte during Contraction.
-Submitted.
-}}}
+
+* Pearu Peterson, Mari Kalda, Marko Vendelin. [http://ajpcell.physiology.org/content/early/2012/12/19/ajpcell.00032.2012.abstract Real-time Determination of Sarcomere Length of a Single Cardiomyocyte during Contraction] _Am J Physiol Cell Physiol_, Article in Press, 2013.
+
 This page describes how to use the provided software.
 Please file all found bugs and feature requests to Issues.
 
