@@ -5,12 +5,9 @@
 IOCBio provides a python module `builder.py` that constructs mass isotopologue equations.
 Another module is provided `demo_model.py` that demonstrates how to use the builder
 software. The system built by `oxygen_isotope_model.py` is studied in the following publication
-{{{
-David W. Schryer, Pearu Peterson, Ardo Illaste, Marko Vendelin.
-Sensitivity analysis of flux determination in heart by H218O-provided 
-labeling using a dynamic isotopologue model of energy transfer pathways
-PLoS Computational Biology.
-}}}
+
+ * David W. Schryer, Pearu Peterson, Ardo Illaste, Marko Vendelin. [http://dx.doi.org/10.1371/journal.pcbi.1002795 Sensitivity analysis of flux determination in heart by H218O-provided  labeling using a dynamic isotopologue model of energy transfer pathways]. PLoS Computational Biology 8(12):e1002795
+
 This page presents the software provided by this publication and 
 demonstrates its use.
 
